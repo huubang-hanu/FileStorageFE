@@ -1,0 +1,28 @@
+
+<p-overlayPanel  #op>
+    <h3>Setting</h3>
+    
+    <form (ngSubmit)="onSaveSetting(form)" #form = "ngForm">
+        <div class="form-group">
+            <label for="typeAllowed" >Allowed upload type</label>
+            <select required [(ngModel)] = "selectedType" class="form-control" name="typeAllowed" id="typeAllowed">
+                <option *ngFor="let mime of fileTypes"
+                        [ngValue]="mime"> {{mime}} </option>
+            
+            </select>
+        </div>
+       
+        
+        <div class="form-group">
+            <label>Max file size</label>
+            <input required style="width: 80%; display: inline-block;" min="1" oninput="validity.valid||(value='');"  name= "maxFileSize" [(ngModel)]="maxFileSize" class="form-control" type="number">
+            <div style="width: 20%; display: inline-block;" class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">MB</span>
+              </div>
+        </div>
+
+        <button [disabled]="!form.valid" type="submit" class="btn btn-primary  mt-3">Save</button>
+    </form>
+   
+    
+</p-overlayPanel>

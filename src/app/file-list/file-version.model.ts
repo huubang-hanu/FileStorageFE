@@ -1,8 +1,9 @@
 
 export interface FileVersion{
+    id: number;
     version: number,
+    deleted: boolean,
     numberOfDownload: number,
-    path: string,
-    isDeleted: boolean,
-    createAt: Date
+    fileSize: number,
+    createdAt: Date
 }
